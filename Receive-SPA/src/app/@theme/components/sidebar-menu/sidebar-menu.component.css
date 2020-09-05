@@ -1,0 +1,9 @@
+.show {
+    display: block;
+}
+.hiden {
+    display: none;
+}
+.navbar-txt {
+    font-size: 18px !important;
+}

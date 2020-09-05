@@ -1,0 +1,8 @@
+.header-background {
+    background: #282a3c;
+}
+.logout-btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}

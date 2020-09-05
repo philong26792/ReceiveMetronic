@@ -1,0 +1,12 @@
+<div class="m-grid m-grid--hor m-grid--root m-page">
+  <app-header></app-header>
+  <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+    <app-sidebar-menu></app-sidebar-menu>
+    <div style="height: 700px;" class="m-grid__item m-grid__item--fluid m-wrapper">
+      <div class="m-content">
+        <ng-content select="router-outlet"></ng-content>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

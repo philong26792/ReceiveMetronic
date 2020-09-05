@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-11">
+
+    </div>
+    <div class="col-md-1">
+        <div class="m-portlet__head-tools">
+            <ul style="float: right;" class="m-portlet__nav styleList">
+              <li class="m-portlet__nav-item">
+                <a (click)="pageAdd()" href="javascript:;"  class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air cs-accent">
+                  <span>
+                    <i class="la la-plus"></i>
+                    <span>
+                      Add new
+                    </span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-md-12 mt-2 ml-2">
+        <div class="m-portlet__body">
+            <!--begin::Section-->
+            <div class="m-section">
+                <div class="m-section__content">
+                    <table class="table m-table m-table--head-bg-success table-bordered m-table--border-success">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Updated_By</th>
+                                <th>Updated_Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products; let i = index">
+                                <td>{{product.id}}</td>
+                                <td>{{product.name}}</td>
+                                <td>{{product.catName}}</td>
+                                <td>{{product.update_By}}</td>
+                                <td>{{product.update_Time | date: "MM/dd/yyyy"}}</td>
+                                <td class="font-table align-middle arow" style='white-space: nowrap'>
+                                    <button (click)="pageEdit(product)" type="button" class="btn btn-info">
+                                        <i class="la la-edit"></i>
+                                    </button>
+                                    <button type="button" (click)="deleteProduct(product)"
+                                        class="btn ml-2 btn-danger">
+                                        <i class="flaticon-delete-1 btn1"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems"
+                        [(ngModel)]="pagination.currentPage" [itemsPerPage]="pagination.itemsPerPage"
+                        (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;"
+                        firstText="&laquo;" lastText="&raquo;" [maxSize]="5">
+                    </pagination>
+                </div>
+            </div>
+            <!--end::Section-->
+        </div>
+    </div>
+</div>
+
+<!-- Start Modal delete yes or no product -->
+<ng-template #templateDelete>
+    <div class="modal-body text-center">
+        <p>Do you want delete product?</p>
+        <button type="button" (click)="confirmDelete()" class="btn btn-danger">Yes</button>
+        <button type="button" class="btn ml-3 btn-primary btn-no-modal" (click)="decline()">No</button>
+    </div>
+</ng-template>
+<!-- End Modal delete yes or no product -->
