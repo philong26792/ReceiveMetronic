@@ -26,7 +26,12 @@ export class LoginComponent implements OnInit {
           notifySuccess('Login Success!!');
         }, 1000);
       },error => {
-        notifyError('Login failed!!');
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          hideLoading();
+          this.router.navigate(["/page/"]);
+          notifyError('Login failed!!');
+        }, 1000);
       }
     );
   }

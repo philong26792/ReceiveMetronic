@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
     this.authService.decodedToken = null;
     this.authService.currentUser = null;
     // this.alertify.message('Logged out');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }
